@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'backend.config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+AUTH_USER_MODEL = "accounts.User"
 
 DATABASES = {
     'default': {

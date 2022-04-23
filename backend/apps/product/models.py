@@ -54,3 +54,22 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Review(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name="reviews")
+    user_id = models.ForeignKey(User , on_delete=models.CASCADE, related_name="reviews")
+    text = models.TextField("Отзыв")
+    created = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField("Активный",default=True)
+
+    class Meta :
+        verbode_name = "Отзыв"
+        verbode_name_plural = "Отзызы"
+        ordering = ["-created"]
+
+
+    def __str__(self):
+        return f'{self.id}'wwwwwwww
+
