@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-
+from backend.apps.accounts.models import User
 
 # Create your models here.
 

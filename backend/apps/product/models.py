@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+from backend.apps.accounts.models import User
 class Category(models.Model):
     name = models.CharField("Название" , max_length=50,unique=True)
     slug = models.SlugField('Слаг', max_length=60 , unique=True)
@@ -37,7 +37,7 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField("Название" , max_length=100,unique=True)
-    description = models.TimeField("Описание")
+    description = models.TextField("Описание")
     price = models.DecimalField("Цена",max_digits=10,decimal_places=2)
     image = models.ImageField("Фото",upload_to="product_image/")
     category = models.ForeignKey(Category,on_delete=models.PROTECT,related_name="products")
@@ -64,12 +64,12 @@ class Review(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField("Активный",default=True)
 
-    class Meta :
-        verbode_name = "Отзыв"
-        verbode_name_plural = "Отзызы"
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзызы"
         ordering = ["-created"]
 
 
     def __str__(self):
-        return f'{self.id}'wwwwwwww
+        return f'{self.id}'
 
