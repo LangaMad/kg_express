@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import json
 from .models import SubCategory
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,ListView,DetailView
+from .models import Category,SubCategory,Product
 
 # Create your views here.
 def get_subcategory(request):
@@ -15,3 +16,27 @@ def get_subcategory(request):
 
 class IndexPage(TemplateView):
     template_name = "index.html"
+
+
+class ProductListView(ListView):
+    model = Product
+    template_name = 'product_list.html'
+    context_object_name = 'products'
+    queryset = Product.objects.filter(is_active = True)
+
+class ProductDatailView(DetailView):
+    model = Product
+    template_name = 'product_detail.html'
+    context_object_name = "product"
+
+
+
+
+
+
+
+
+
+
+
+

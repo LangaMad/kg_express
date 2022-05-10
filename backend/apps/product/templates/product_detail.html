@@ -1,0 +1,9 @@
+{% extends 'base_tabler.html' %}
+
+
+{% block content %}
+        <h1>{{ product.name }}</h1>
+        <h4>{{ product.price }} som </h4>
+        <img src="{{product.image.url}}" alt="">
+        <p>{{ product.description }}</p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base_tabler.html' %}
+
+{% block content %}
+{% for product in products %}
+  <div class="col-md-6 col-lg-3">
+                <div class="card">
+                  <div class="card-img-top img-responsive " style="background-image: url({{product.image.url}})"></div>
+                  <div class="card-body">
+                    <h3 class="card-title">{{product.name}}     </h3>
+
+                    <p class="text-muted">{{product.price}} som</p>
+                      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3">
+                <a href="#" class="btn btn-primary btn-pill w-200">
+                  Primary
+                </a>
+              </div>
+                  </div>
+                </div>
+              </div>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
